@@ -1,9 +1,9 @@
-const container = document.querySelector("#container")
-const randomColorToggle = document.querySelector("#random-color-toggle")
-let containerWidth = container.offsetWidth;
-
-
+const container = document.querySelector("#container");
+const randomColorToggle = document.querySelector("#random-color-toggle");
+const transparencyColorToggle = document.querySelector("#transparency-color-toggle");
 const btn = document.querySelector("#grid-button")
+let containerWidth = container.offsetWidth;
+let subdivs;
 
 btn.addEventListener("click", function() {
     getInput();
@@ -12,13 +12,33 @@ btn.addEventListener("click", function() {
 })
 
 container.addEventListener('mouseover', (event) => {
+
+    //stop grid being drawn on before grid size is defined
+    if (typeof subdivs === 'undefined') {
+        return
+    }
+    
     let target = event.target;
-    if (randomColorToggle) {
+
+    //set random colors
+    if (randomColorToggle.checked) {
         target.style.backgroundColor = getRandomColor()
     } else {
         target.style.backgroundColor = "black"
     }
-    
+
+    //set transparency
+    if (transparencyColorToggle.checked) {
+        if(target.style.opacity == null || target.style.opacity == "") {
+            console.log("no opacity")
+            target.style.opacity = "0.1";
+        } else if (target.style.opacity < 1){
+            let thisOpacity = parseFloat(target.style.opacity)
+            thisOpacity += 0.1;
+            target.style.opacity = thisOpacity.toString();
+            console.log("opacity incremented")
+        }
+    }
 })
 
 function resetGrid() {
