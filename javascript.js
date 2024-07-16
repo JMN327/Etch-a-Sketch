@@ -1,6 +1,11 @@
 const container = document.querySelector("#container")
 let containerWidth = container.offsetWidth;
 
+container.addEventListener('mouseover', (event) => {
+    let target = event.target;
+    target.classList.add("marked")
+})
+
 getInput();
 populateContainer(subdivs);
 

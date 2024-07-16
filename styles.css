@@ -24,5 +24,10 @@
 
 .square {
     background-color: aquamarine;
+    border: 1px solid white;
+}
+
+.marked {
+    background-color: black;
     border: 1px solid black;
 }
