@@ -3,6 +3,7 @@ let containerWidth = container.offsetWidth;
 
 container.addEventListener('mouseover', (event) => {
     let target = event.target;
+    
     target.classList.add("marked")
 })
 
