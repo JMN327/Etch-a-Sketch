@@ -8,9 +8,16 @@
 .wrapper {
     background-color: rgb(128, 128, 128);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content:flex-start;
     align-items: center;
     height: 100vh;
+}
+
+#grid-button {
+    padding: 8px;
+    margin: 12px;
+
 }
 
 #container {

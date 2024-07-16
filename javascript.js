@@ -1,16 +1,25 @@
 const container = document.querySelector("#container")
 let containerWidth = container.offsetWidth;
 
+const btn = document.querySelector("#grid-button")
+
+btn.addEventListener("click", function() {
+    getInput();
+    resetGrid();
+    populateContainer(subdivs);
+})
+
 container.addEventListener('mouseover', (event) => {
     let target = event.target;
     
     target.classList.add("marked")
 })
 
-getInput();
-populateContainer(subdivs);
-
-
+function resetGrid() {
+    while(container.hasChildNodes() ){
+        container.removeChild(container.lastChild);
+    }
+}
 
 function populateContainer(subdivs){
     const sqrCount = subdivs * subdivs;
