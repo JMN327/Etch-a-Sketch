@@ -1,5 +1,7 @@
 const container = document.querySelector("#container")
+const randomColorToggle = document.querySelector("#random-color-toggle")
 let containerWidth = container.offsetWidth;
+
 
 const btn = document.querySelector("#grid-button")
 
@@ -11,8 +13,12 @@ btn.addEventListener("click", function() {
 
 container.addEventListener('mouseover', (event) => {
     let target = event.target;
+    if (randomColorToggle) {
+        target.style.backgroundColor = getRandomColor()
+    } else {
+        target.style.backgroundColor = "black"
+    }
     
-    target.classList.add("marked")
 })
 
 function resetGrid() {
@@ -49,3 +55,12 @@ function getInput(){
         subdivs = 1;
     }
 }
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
