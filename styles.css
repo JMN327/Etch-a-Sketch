@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper {
+    background-color: rgb(128, 128, 128);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    width: 840px;
+    height: 840px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+}
